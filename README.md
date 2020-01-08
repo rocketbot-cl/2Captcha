@@ -1,5 +1,5 @@
 # 2Captcha
-Module to solve recatpchas with 2Captcha (only for captcha v1 and v2)
+Module to solve recaptchas with 2Captcha (only for captcha v1 and v2)
 
 **You must create an account in 2Captcha's page and pay for a Key to resolve recaptchas.
 
