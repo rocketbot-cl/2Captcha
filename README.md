@@ -1,6 +1,12 @@
 # 2Captcha
 Module to solve recaptchas with 2Captcha (only for captcha v1 and v2)
 
+## Commands
+<ul>
+    <li>Resolve ReCaptcha</li>
+    <li>Resolve Image Captcha</li>
+</ul>
+
 **You must create an account in 2Captcha's page and pay for a Key to resolve recaptchas.
 
 For more information go to: <a href="https://2captcha.com/">2Captcha</a>
