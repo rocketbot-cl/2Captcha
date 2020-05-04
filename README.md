@@ -2,7 +2,7 @@
 Module to solve recaptchas with 2Captcha (only for captcha v1 and v2)
 
 ## Commands
-<ul>
+<ul id="commands_readme">
     <li>Resolve ReCaptcha</li>
     <li>Resolve Image Captcha</li>
 </ul>
