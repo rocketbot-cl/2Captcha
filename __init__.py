@@ -100,9 +100,11 @@ if module == "captchaimagen":
         url = 'http://2captcha.com/in.php'
         file_ = open(path_, 'rb')
         files = {'file': file_}
-        data = {'key': key, 'method': 'post'}
+        data = {'key': key, 'method': 'post', 'regsense': 1}
         captcha_id = s.post(url, files=files, data=data).text.split('|')
         print(captcha_id)
+        if not 'OK' in captcha_id:
+            raise Exception(captcha_id[0])
         captcha_id = captcha_id[1]
         # then we parse gresponse from 2captcha response
         recaptcha_answer = s.get("http://2captcha.com/res.php?key={}&action=get&id={}".format(API_KEY, captcha_id), proxies=proxy).text
@@ -111,6 +113,9 @@ if module == "captchaimagen":
             sleep(5)
             recaptcha_answer = s.get("http://2captcha.com/res.php?key={}&action=get&id={}".format(API_KEY, captcha_id), proxies=proxy).text
             print(recaptcha_answer)
+
+        if not 'OK' in recaptcha_answer:
+            raise Exception(recaptcha_answer)
         recaptcha_answer = recaptcha_answer.split('|')
         print(recaptcha_answer)
         recaptcha_answer = recaptcha_answer[1]
