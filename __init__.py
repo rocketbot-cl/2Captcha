@@ -36,17 +36,61 @@ module = GetParams("module")
 """
     Resuelvo catpcha tipo reCaptchav2
 """
-if module == "ReCaptchaV2":
-    key = GetParams("key")
-    token = GetParams("token")
-    url = GetParams("url")
-    var_ = GetParams("result")
 
-    if key and token:
-        try:
+try:
+    if module == "ReCaptchaV2":
+        key = GetParams("key")
+        token = GetParams("token")
+        url = GetParams("url")
+        var_ = GetParams("result")
+
+        if key and token:
+            try:
+                # Add these values
+                API_KEY = key  # Your 2captcha API KEY
+                site_key = token  # site-key, read the 2captcha docs on how to get this
+                #url = 'http://somewebsite.com'  # example url
+                proxy = None #'127.0.0.1:6969'  # example proxy
+
+                #proxy = {'http': 'http://' + proxy, 'https': 'https://' + proxy}
+
+                s = requests.Session()
+
+                # here we post site key to 2captcha to get captcha ID (and we parse it here too)
+                url_captcha  = "http://2captcha.com/in.php?key={}&method=userrecaptcha&googlekey={}&pageurl={}".format(API_KEY, site_key, url)
+                print(url_captcha)
+                captcha_id = s.get(url_captcha, proxies=proxy).text.split('|')
+                print(captcha_id)
+                captcha_id = captcha_id[1]
+                # then we parse gresponse from 2captcha response
+                recaptcha_answer = s.get("http://2captcha.com/res.php?key={}&action=get&id={}".format(API_KEY, captcha_id), proxies=proxy).text
+                print("solving ref captcha...")
+                while 'CAPCHA_NOT_READY' in recaptcha_answer:
+                    sleep(5)
+                    recaptcha_answer = s.get("http://2captcha.com/res.php?key={}&action=get&id={}".format(API_KEY, captcha_id), proxies=proxy).text
+                    print(recaptcha_answer)
+                recaptcha_answer = recaptcha_answer.split('|')[1]
+                s.close()
+                print(recaptcha_answer)
+                SetVar(var_, str(recaptcha_answer))
+            except Exception as e:
+                print("\x1B[" + "31;40m" + str(e) + "\x1B[" + "0m")
+                PrintException()
+                raise Exception(e)
+    """
+        Resuelvo captcha tipo imagen
+    """
+
+    if module == "captchaimagen":
+
+        key = GetParams("key")
+        path_ = GetParams("path")
+        var_ = GetParams("result")
+        print(var_)
+        if key and path_:
             # Add these values
             API_KEY = key  # Your 2captcha API KEY
-            site_key = token  # site-key, read the 2captcha docs on how to get this
+
             #url = 'http://somewebsite.com'  # example url
             proxy = None #'127.0.0.1:6969'  # example proxy
 
@@ -55,10 +99,16 @@ if module == "ReCaptchaV2":
             s = requests.Session()
 
             # here we post site key to 2captcha to get captcha ID (and we parse it here too)
-            url_captcha  = "http://2captcha.com/in.php?key={}&method=userrecaptcha&googlekey={}&pageurl={}".format(API_KEY, site_key, url)
-            print(url_captcha)
-            captcha_id = s.get(url_captcha, proxies=proxy).text.split('|')
+            url = 'http://2captcha.com/in.php'
+            file_ = open(path_, 'rb')
+            files = {'file': file_}
+            data = {'key': key, 'method': 'post', 'regsense': 1}
+            res = s.post(url, files=files, data=data).text
+            print(res)
+            captcha_id = res.split('|')
             print(captcha_id)
+            if not 'OK' in captcha_id:
+                raise Exception(captcha_id[0])
             captcha_id = captcha_id[1]
             # then we parse gresponse from 2captcha response
             recaptcha_answer = s.get("http://2captcha.com/res.php?key={}&action=get&id={}".format(API_KEY, captcha_id), proxies=proxy).text
@@ -67,62 +117,19 @@ if module == "ReCaptchaV2":
                 sleep(5)
                 recaptcha_answer = s.get("http://2captcha.com/res.php?key={}&action=get&id={}".format(API_KEY, captcha_id), proxies=proxy).text
                 print(recaptcha_answer)
-            recaptcha_answer = recaptcha_answer.split('|')[1]
+
+            if not 'OK' in recaptcha_answer:
+                raise Exception(recaptcha_answer)
+            recaptcha_answer = recaptcha_answer.split('|')
+            print(recaptcha_answer)
+            recaptcha_answer = recaptcha_answer[1]
             s.close()
+            file_.close()
             print(recaptcha_answer)
-            SetVar(var_, str(recaptcha_answer))
-        except Exception as e:
-            print("\x1B[" + "31;40m" + str(e) + "\x1B[" + "0m")
-            PrintException()
-            raise Exception(e)
-"""
-    Resuelvo captcha tipo imagen
-"""
-
-if module == "captchaimagen":
-
-    key = GetParams("key")
-    path_ = GetParams("path")
-    var_ = GetParams("result")
-    print(var_)
-    if key and path_:
-        # Add these values
-        API_KEY = key  # Your 2captcha API KEY
-
-        #url = 'http://somewebsite.com'  # example url
-        proxy = None #'127.0.0.1:6969'  # example proxy
-
-        #proxy = {'http': 'http://' + proxy, 'https': 'https://' + proxy}
-
-        s = requests.Session()
-
-        # here we post site key to 2captcha to get captcha ID (and we parse it here too)
-        url = 'http://2captcha.com/in.php'
-        file_ = open(path_, 'rb')
-        files = {'file': file_}
-        data = {'key': key, 'method': 'post', 'regsense': 1}
-        captcha_id = s.post(url, files=files, data=data).text.split('|')
-        print(captcha_id)
-        if not 'OK' in captcha_id:
-            raise Exception(captcha_id[0])
-        captcha_id = captcha_id[1]
-        # then we parse gresponse from 2captcha response
-        recaptcha_answer = s.get("http://2captcha.com/res.php?key={}&action=get&id={}".format(API_KEY, captcha_id), proxies=proxy).text
-        print("solving ref captcha...")
-        while 'CAPCHA_NOT_READY' in recaptcha_answer:
-            sleep(5)
-            recaptcha_answer = s.get("http://2captcha.com/res.php?key={}&action=get&id={}".format(API_KEY, captcha_id), proxies=proxy).text
-            print(recaptcha_answer)
-
-        if not 'OK' in recaptcha_answer:
-            raise Exception(recaptcha_answer)
-        recaptcha_answer = recaptcha_answer.split('|')
-        print(recaptcha_answer)
-        recaptcha_answer = recaptcha_answer[1]
-        s.close()
-        file_.close()
-        print(recaptcha_answer)
-        try:
-            SetVar(var_, str(recaptcha_answer))
-        except Exception as e:
-            print(e)
+            try:
+                SetVar(var_, str(recaptcha_answer))
+            except Exception as e:
+                print(e)
+except Exception as e:
+    PrintException()
+    raise e
