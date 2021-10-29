@@ -58,10 +58,12 @@ try:
 
                 # here we post site key to 2captcha to get captcha ID (and we parse it here too)
                 url_captcha  = "http://2captcha.com/in.php?key={}&method=userrecaptcha&googlekey={}&pageurl={}".format(API_KEY, site_key, url)
-
+                
                 captcha_id = s.get(url_captcha, proxies=proxy).text.split('|')
-
-                captcha_id = captcha_id[1]
+                try:
+                    captcha_id = captcha_id[1]
+                except:
+                    raise Exception(captcha_id[0])
                 # then we parse gresponse from 2captcha response
                 recaptcha_answer = s.get("http://2captcha.com/res.php?key={}&action=get&id={}".format(API_KEY, captcha_id), proxies=proxy).text
                 print("solving ref captcha...")
