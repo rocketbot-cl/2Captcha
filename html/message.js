@@ -96,7 +96,8 @@ function getDataFromRB({ module_name, command_name }) {
             data = data.replaceAll("\'", "\"")
             data = data.replaceAll("None", "\"None\"")
             
-            obj = JSON.parse(data)
+            // obj = JSON.parse(data)
+            obj = eval('(' + data + ')')
             
             return obj.dataFromCaptcha[0];
         });
