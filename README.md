@@ -1,47 +1,48 @@
+
+
+
+
 # 2Captcha
-Module to solve recaptchas with 2Captcha (only for captcha v1 and v2)
+  
+Module to resolve recaptchas with 2Captcha.
 
-## Commands
-<ul id="commands_readme">
-    <li>Resolve ReCaptcha</li>
-    <li>Resolve Image Captcha</li>
-</ul>
+## How to install this module
+  
+__Download__ and __install__ the content in 'modules' folder in Rocketbot path  
 
-**You must create an account in 2Captcha's page and pay for a Key to resolve recaptchas.
 
-For more information go to: <a href="https://2captcha.com/">2Captcha</a>
+## How to use this module
+In order to use this module, you need to have a 2Captcha account with founds. Also, if you 
+want to see the help in the table, you need to open the captcha web page with a Rocketbot browser.
 
-<strong>Captcha v1</strong>
 
-![alt text](https://raw.githubusercontent.com/rocketbot-cl/2Captcha/master/example/v1.png)
+## Overview
 
-<h2>Video Example:</h2>
 
-[![Captcha Image](https://img.youtube.com/vi/WTEvlQEaH5g/0.jpg)](https://www.youtube.com/watch?v=WTEvlQEaH5g "Captcha v1")
+1. Resolve ReCaptcha  
+Resolve ReCaptcha with an API of https://2captcha.com mas información https://2captcha.com/2captcha-
+api#solving_recaptchav2_new
 
-<strong>Captcha v2</strong>
+2. Resolve Image Captcha   
+Resolve a Image Captcha with an API of https://2captcha.com mas información https://2captcha.com/2captcha-api
 
-![alt text](https://raw.githubusercontent.com/rocketbot-cl/2Captcha/master/example/v2.png)
+3. See Image Captcha   
+Resolve a Image Captcha with an API of https://2captcha.com mas información https://2captcha.com/2captcha-api  
 
-<h2>Video Example:</h2>
 
-[![reCaptcha](https://img.youtube.com/vi/BDDghM17ZCk/0.jpg)](https://www.youtube.com/watch?v=BDDghM17ZCk "Captcha v2")
 
-<h2>Link to API documentation</h2>
-<p>
-  <ul>
-    <li>
-      <a href="https://2captcha.com/2captcha-api">
-        2Captcha API
-      </a>
-    </li>
-  </ul> 
-</p>
 
-<h2>License</h2>
+----
+### OS
 
-<p><a href="http://badges.mit-license.org" rel="nofollow"><img src="https://camo.githubusercontent.com/107590fac8cbd65071396bb4d04040f76cde5bde/687474703a2f2f696d672e736869656c64732e696f2f3a6c6963656e73652d6d69742d626c75652e7376673f7374796c653d666c61742d737175617265" alt="License" data-canonical-src="http://img.shields.io/:license-mit-blue.svg?style=flat-square" style="max-width:100%;"></a></p>
+- windows
+- mac
+- linux
+- docker
 
-<ul>
-  <li><strong><a href="http://opensource.org/licenses/mit-license.php" rel="nofollow">MIT license</a></strong></li>
-</ul>  
+### Dependencies
+- [**requests**](https://pypi.org/project/requests/)
+### License
+  
+![MIT](https://camo.githubusercontent.com/107590fac8cbd65071396bb4d04040f76cde5bde/687474703a2f2f696d672e736869656c64732e696f2f3a6c6963656e73652d6d69742d626c75652e7376673f7374796c653d666c61742d737175617265)  
+[MIT](http://opensource.org/licenses/mit-license.ph)

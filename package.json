@@ -2,7 +2,7 @@
     "author":"David Cuello - Rocketbot - <david@rocketbot.cl>",
     "description": "Módulos para resolver recatpchas con 2Captcha",
     "disclaimer":"THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-    "version":"1.2",
+    "version":"1.3.0",
     "license": "MIT",
     "homepage":"http://rocketbot.co/",
     "linux": true,
@@ -71,6 +71,10 @@
                             "en":"You'll find it in the dashboard section of 2captcha.com",
                             "cn":""
                         },
+                        "description": {
+                            "es": "Key provista por 2Captcha",
+                            "en": "Key provided by 2Captcha"
+                        },
                         "id": "key",
                         "css": "col-md-12"
                     },
@@ -85,6 +89,10 @@
                             "es": "Url de la página que tiene ReCaptcha | pageurl",
                             "en": "Url de la página que tiene ReCaptcha | pageurl",
                             "cn": "Url de la página que tiene ReCaptcha | pageurl"
+                        },
+                        "description": {
+                            "es": "Key provista por 2Captcha",
+                            "en": "Key provided by 2Captcha"
                         },
                         "id": "url",
                         "css": "col-md-12"
@@ -114,6 +122,10 @@
                         "title": {
                             "es": "Variable donde se almacena el resultado de 2Captcha",
                             "en": "Variable where the 2Captcha result is stored"
+                        },
+                        "description": {
+                            "es": "Variable donde guardar el resultado",
+                            "en": "Variable where to save the result"
                         },
                          "help": {
                             "es": "Nombre de variable sin llaves {}",
@@ -172,6 +184,10 @@
                             "en": "Key 2Captcha",
                             "cn": "Key 2Captcha"
                         },
+                        "description": {
+                            "es": "Key provista por 2Captcha",
+                            "en": "Key provided by 2Captcha"
+                        },
                         "id": "key",
                         "css": "col-md-12"
                     },
@@ -184,8 +200,12 @@
                         },
                         "title": {
                             "es": "Ruta a la imagen en su equipo",
-                            "en": "Ruta a la imagen en su equipo",
+                            "en": "Path to image",
                             "cn": "Ruta a la imagen en su equipo"
+                        },
+                        "description": {
+                            "es": "Ruta donde se encuentra la imagen del captcha",
+                            "en": "Path where the image of captcha is"
                         },
                         "id": "path",
                         "css": "col-md-12"
@@ -199,8 +219,12 @@
                         },
                         "title": {
                             "es": "Variable donde se almacena el resultado de 2Captcha",
-                            "en": "Variable donde se almacena el resultado de 2Captcha",
+                            "en": "Variable to store 2Captcha result",
                             "cn": "Variable donde se almacena el resultado de 2Captcha"
+                        },
+                        "description": {
+                            "es": "Variable donde guardar el resultado",
+                            "en": "Variable where to save the result"
                         },
                          "help": {
                             "es": "Nombre de variable sin llaves {}",
@@ -249,7 +273,11 @@
                         "src": "index.html",
                         "id": "html",
                         "css": "col-md-12",
-                        "style": "height:300px;"
+                        "style": "height:300px;",
+                        "description": {
+                            "es":"Para ver la tabla, se necesita abrir primeramente el navegador con Rocketbot en la página del Captcha.",
+                            "en":"In order to see the table, you need to open the captcha web page with Rocketbot browser."
+                        }
                     }
                 ]
             },
