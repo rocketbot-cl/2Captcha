@@ -183,10 +183,6 @@ try:
         element2 = driver.execute_script(theScript)
         # driver.switch_to.default_content()
         # print(element2)
-        SetVar("2Captcha_fake_var", {
-            "dataFromCaptcha" : element2,
-        })
-        # print(theScript)
     
 except Exception as e:
     PrintException()

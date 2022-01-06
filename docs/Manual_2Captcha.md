@@ -43,9 +43,3 @@ Resuelve un Captcha tipo imagen con API de https://2captcha.com mas información
 |Ruta a la imagen en su equipo|Ruta donde se encuentra la imagen del captcha|C:/Users/User/Desktop/captcha.png|
 |Variable donde se almacena el resultado de 2Captcha|Variable donde guardar el resultado|Variable|
 
-### Ver Captcha Imagen
-  
-Resuelve un Captcha tipo imagen con API de https://2captcha.com mas información https://2captcha.com/2captcha-api
-|Parámetros|Descripción|ejemplo|
-| --- | --- | --- |
-|HTML|Para ver la tabla, se necesita abrir primeramente el navegador con Rocketbot en la página del Captcha.||

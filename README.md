@@ -26,8 +26,6 @@ api#solving_recaptchav2_new
 2. Resolve Image Captcha   
 Resolve a Image Captcha with an API of https://2captcha.com mas información https://2captcha.com/2captcha-api
 
-3. See Image Captcha   
-Resolve a Image Captcha with an API of https://2captcha.com mas información https://2captcha.com/2captcha-api  
 
 
 
