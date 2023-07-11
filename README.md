@@ -1,31 +1,24 @@
-
-
-
-
 # 2Captcha
   
-Module to resolve recaptchas with 2Captcha.
+Module to solve recatpchas with 2Captcha  
+
+*Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
 
 ## How to install this module
   
-__Download__ and __install__ the content in 'modules' folder in Rocketbot path  
-
-
-## How to use this module
-In order to use this module, you need to have a 2Captcha account with founds. Also, if you 
-want to see the help in the table, you need to open the captcha web page with a Rocketbot browser.
+To install the module in Rocketbot Studio, it can be done in two ways:
+1. Manual: __Download__ the .zip file and unzip it in the modules folder. The folder name must be the same as the module and inside it must have the following files and folders: \__init__.py, package.json, docs, example and libs. If you have the application open, refresh your browser to be able to use the new module.
+2. Automatic: When entering Rocketbot Studio on the right margin you will find the **Addons** section, select **Install Mods**, search for the desired module and press install.  
 
 
 ## Overview
 
 
 1. Resolve ReCaptcha  
-Resolve ReCaptcha with an API of https://2captcha.com mas información https://2captcha.com/2captcha-
-api#solving_recaptchav2_new
+Resolve ReCaptcha with an API of https://2captcha.com mas información https://2captcha.com/2captcha-api#solving_recaptchav2_new
 
-2. Resolve Image Captcha   
-Resolve a Image Captcha with an API of https://2captcha.com mas información https://2captcha.com/2captcha-api
-
+2. Resolve Image Captcha  
+Resolve a Image Captcha with an API of https://2captcha.com more information https://2captcha.com/2captcha-api  
 
 
 
