@@ -95,10 +95,15 @@ function getDataFromRB({ module_name, command_name }) {
             data = response.vars[0].data;
             data = data.replaceAll("\'", "\"")
             data = data.replaceAll("None", "\"None\"")
+            console.log(data)
+            // obj = JSON.parse(data);
+            try{
+                obj = eval('(' + data + ')')
+                return obj[0];
+            }
+            catch(err){
+                return null
+            }
             
-            // obj = JSON.parse(data)
-            obj = eval('(' + data + ')')
-            
-            return obj.dataFromCaptcha[0];
         });
 }

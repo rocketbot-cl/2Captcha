@@ -21,6 +21,10 @@ function addOptions(theArray) {
     
     for (let eachKey of Object.keys(theArray)) {
         let eachValue = theArray[eachKey]
+        console.log(typeof eachValue)
+        if (typeof eachValue == "object") {
+            eachValue = JSON.stringify(eachValue)
+        }
         console.log(eachKey, eachValue)
         mytable += "<td> " + eachKey + " </td><td> " + eachValue + " </td> </tr>";
     }
@@ -32,5 +36,10 @@ function addOptions(theArray) {
 
 data = getDataFromRB({module_name:"2Captcha", command_name:"getCallback"})
 .then(data => {
+    if (data) {
     addOptions(data)
+} else {
+    not_browser = {'Error': 'The browser is not opened or does not contain a valid captcha'}
+    addOptions(not_browser)
+}
 })
