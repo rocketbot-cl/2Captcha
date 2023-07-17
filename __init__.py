@@ -167,23 +167,29 @@ try:
                     data.function = null;
                   } else {
                     data.function = callback;
-                    const keys = [cid, toplevelKey, sublevelKey, callbackKey].map((key) => `['${key}']`).join('');
+                    const keys = [cid, toplevelKey, sublevelKey, callbackKey].map((key) => `[\"${key}\"]`).join('');
                     data.callback = `___grecaptcha_cfg.clients${keys}`;
+
                   }
                 }
               });
+              data.url = window.location.href;
               return data;
             });
           }
           return [];
         } return findRecaptchaClients()"""
+
         # driver.switch_to.default_content()
         # elementLocator = driver.find_element_by_xpath("""//*[@id="layoutContainers"]/div[2]/div[1]/div/div/section/div[2]/div[2]/iframe""")
         # driver.switch_to_frame(elementLocator)
         element2 = driver.execute_script(theScript)
+        print(type(element2))
+        print(element2)
         # driver.switch_to.default_content()
         # print(element2)
-    
+        SetVar("2Captcha_fake_var", json.dumps(element2))
+
 except Exception as e:
     PrintException()
     raise e
