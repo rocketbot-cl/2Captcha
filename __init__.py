@@ -82,6 +82,48 @@ try:
                 print("\x1B[" + "31;40m" + str(e) + "\x1B[" + "0m")
                 PrintException()
                 raise Exception(e)
+            
+    
+    if module == "hCaptcha":
+        key = GetParams("key")
+        token = GetParams("token")
+        url = GetParams("url")
+        var_ = GetParams("result")
+
+        if key and token:
+            try:
+                API_KEY = key
+                site_key = token
+                proxy = None
+
+                s = requests.Session()
+
+                url_captcha = "http://2captcha.com/in.php?key={}&method=hcaptcha&sitekey={}&pageurl={}".format(API_KEY, site_key, url)
+                
+                captcha_id = s.get(url_captcha, proxies=proxy).text.split('|')
+                try:
+                    captcha_id = captcha_id[1]
+                except:
+                    raise Exception(captcha_id[0])
+
+                recaptcha_answer = s.get("http://2captcha.com/res.php?key={}&action=get&id={}".format(API_KEY, captcha_id), proxies=proxy).text
+                print("solving hCaptcha...")
+                while 'CAPCHA_NOT_READY' in recaptcha_answer:
+                    sleep(5)
+                    recaptcha_answer = s.get("http://2captcha.com/res.php?key={}&action=get&id={}".format(API_KEY, captcha_id), proxies=proxy).text
+                    print(recaptcha_answer)
+                if not 'OK' in recaptcha_answer:
+                    raise Exception(recaptcha_answer)
+                recaptcha_answer = recaptcha_answer.split('|')[1]
+
+                s.close()
+
+                SetVar(var_, str(recaptcha_answer))
+            except Exception as e:
+                print("\x1B[" + "31;40m" + str(e) + "\x1B[" + "0m")
+                PrintException()
+                raise Exception(e)
+
     """
         Resuelvo captcha tipo imagen
     """

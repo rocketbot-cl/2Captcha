@@ -17,7 +17,10 @@ To install the module in Rocketbot Studio, it can be done in two ways:
 1. Resolve ReCaptcha  
 Resolve ReCaptcha with an API of https://2captcha.com mas información https://2captcha.com/2captcha-api#solving_recaptchav2_new
 
-2. Resolve Image Captcha  
+2. Resolve hCaptcha  
+Resolve hCaptcha with an API of https://2captcha.com mas información https://2captcha.com/2captcha-api#solving_hcaptcha
+
+3. Resolve Image Captcha  
 Resolve a Image Captcha with an API of https://2captcha.com more information https://2captcha.com/2captcha-api  
 
 
