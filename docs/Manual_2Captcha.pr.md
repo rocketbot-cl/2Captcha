@@ -88,6 +88,17 @@ Resolva o ReCaptcha com a API https://2captcha.com Mais informações https://2c
 |Token ReCaptcha \| sitekey||Token|
 |Variável onde o resultado do 2Captcha é armazenado|Variável onde salvar o resultado|Variable|
 
+### Resolver hCaptcha
+  
+Resolva o hCaptcha com a API https://2captcha.com Mais informações https://2captcha.com/2captcha-api#solving_hcaptcha
+|Parâmetros|Descrição|exemplo|
+| --- | --- | --- |
+|Dados importantes|||
+|Key 2Captcha|Chave fornecida pelo 2Captcha|Key|
+|Url da página que tem hCaptcha \| pageurl|Url da página que tem hCaptcha|Url da página|
+|Token hCaptcha \| sitekey||Token|
+|Variável onde o resultado do 2Captcha é armazenado|Variável onde salvar o resultado|Variable|
+
 ### Resolver Captcha Imagen
   
 Resolva um Captcha de imagem com a API https://2captcha.com mais informações https://2captcha.com/2captcha-api
